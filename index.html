@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Familiar Libre de Deudas — Rabino Leonardo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --oro:#c9a84c;
+  --oro-claro:#f0d080;
+  --verde:#2d6a4f;
+  --verde-claro:#52b788;
+  --navy:#0d1b2a;
+  --navy2:#1b2d3e;
+  --blanco:#f8f4ee;
+  --texto:#e8e0d0;
+  --rojo:#c0392b;
+}
+body{font-family:'Lato',sans-serif;background:var(--navy);color:var(--texto);line-height:1.6;font-size:16px;}
+.wrap{max-width:700px;margin:0 auto;padding:0 18px;}
+
+/* TOPBAR */
+#topbar{background:#0a1520;color:var(--oro-claro);text-align:center;padding:11px 16px;font-size:16px;font-weight:700;border-bottom:2px solid var(--oro);}
+#topbar span{color:#fff;}
+
+/* HEADER */
+.page-header{background:var(--navy2);text-align:center;padding:10px 16px;font-family:'Playfair Display',serif;font-size:18px;color:var(--oro);letter-spacing:1px;border-bottom:1px solid rgba(201,168,76,.2);}
+
+/* URGENCIA */
+.urgencia-top{background:linear-gradient(90deg,#0a1a10,#1a3020,#0a1a10);border-top:2px solid var(--verde-claro);border-bottom:2px solid var(--verde-claro);text-align:center;padding:13px 16px;font-size:17px;color:#c8f0d8;font-weight:700;}
+.urgencia-top span{color:#7fff9a;font-size:19px;}
+
+/* HERO */
+.hero{background:linear-gradient(180deg,#0d1b2a 0%,#0f2030 60%,#0d1b2a 100%);padding:36px 16px 28px;text-align:center;border-bottom:1px solid rgba(201,168,76,.15);}
+.hero-logo{width:80px;margin:0 auto 16px;opacity:.9;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,44px);font-weight:900;line-height:1.15;color:#fff;margin-bottom:14px;}
+.hero h1 em{color:var(--oro);font-style:normal;}
+.hero-sub{font-size:clamp(16px,3vw,20px);color:#c8dfc8;max-width:560px;margin:0 auto 20px;line-height:1.6;font-weight:700;}
+.hero-versicle{background:rgba(201,168,76,.1);border-left:4px solid var(--oro);border-radius:0 8px 8px 0;padding:12px 18px;max-width:500px;margin:0 auto 24px;font-style:italic;color:var(--oro-claro);font-size:15px;text-align:left;}
+.hero-versicle strong{display:block;font-size:13px;font-style:normal;color:var(--oro);margin-top:4px;opacity:.8;}
+.hero-img{max-width:480px;margin:0 auto 24px;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.5);}
+.hero-img img{width:100%;border-radius:12px;}
+
+/* BOTAO */
+.btn-comprar{display:block;background:linear-gradient(180deg,#3a8a5a 0%,#2d6a44 100%);color:#fff;font-family:'Playfair Display',serif;font-size:clamp(16px,3vw,22px);font-weight:700;text-decoration:none;text-align:center;padding:16px 24px;border-radius:10px;letter-spacing:.5px;box-shadow:0 6px 24px rgba(45,106,68,.5);max-width:500px;margin:0 auto 12px;transition:transform .15s,box-shadow .15s;border:none;cursor:pointer;display:block;}
+.btn-comprar:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(82,183,136,.5);}
+.btn-comprar small{display:block;font-size:13px;font-weight:400;opacity:.9;margin-top:5px;font-family:'Lato',sans-serif;}
+.btn-wrap{max-width:500px;margin:0 auto;}
+.pagamentos{text-align:center;font-size:13px;color:#88a;margin:6px 0;}
+.pagamentos strong{color:var(--verde-claro);}
+.garantia-mini{text-align:center;font-size:14px;color:var(--verde-claro);font-weight:700;margin-bottom:20px;}
+
+/* CUPOM BOX */
+.cupom-box{background:linear-gradient(135deg,#0f2a1a,#1a3a25);border:2px solid var(--verde-claro);border-radius:12px;padding:20px;max-width:500px;margin:18px auto;text-align:center;}
+.cupom-titulo{font-size:13px;color:#7fcc9a;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;}
+.cupom-code{font-family:'Playfair Display',serif;font-size:32px;color:#7fff9a;font-weight:700;letter-spacing:4px;margin-bottom:6px;}
+.cupom-desc{font-size:14px;color:#b0d8b8;}
+.cupom-vagas{margin-top:10px;}
+.barra-label{font-size:12px;color:#aacaaa;margin-bottom:5px;}
+.barra-wrap{background:rgba(255,255,255,.1);border-radius:20px;height:14px;overflow:hidden;margin-bottom:6px;}
+.barra-fill{height:100%;border-radius:20px;background:linear-gradient(90deg,#2d9a4a,#7fff9a);width:80%;animation:pulso 2s ease-in-out infinite;}
+@keyframes pulso{0%,100%{opacity:1}50%{opacity:.75}}
+.barra-aviso{font-size:13px;color:#ff9966;font-weight:700;}
+.dot-pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff9966;animation:pisca 1.2s infinite;margin-right:5px;vertical-align:middle;}
+@keyframes pisca{0%,100%{opacity:1}50%{opacity:.2}}
+
+/* DIVISOR */
+.divisor{text-align:center;padding:14px 0;color:var(--oro);font-size:20px;letter-spacing:6px;background:var(--navy);}
+
+/* SECOES */
+.secao{padding:36px 16px;}
+.secao-titulo{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--oro-claro);text-align:center;margin-bottom:8px;line-height:1.2;}
+.secao-titulo span{color:var(--verde-claro);}
+.secao-sub{font-size:16px;color:#aac0aa;text-align:center;max-width:560px;margin:0 auto 24px;line-height:1.7;}
+
+/* PROBLEMAS */
+.prob-item{background:rgba(13,27,42,.8);border-left:4px solid var(--rojo);border-radius:0 10px 10px 0;padding:16px 20px;margin-bottom:12px;}
+.prob-item p{font-size:16px;color:#ccc;line-height:1.7;}
+.prob-item strong{color:#ff8888;}
+
+/* ESPIRITUALIDADE */
+.espi-box{background:linear-gradient(135deg,#0f1e0f,#1a2e1a);border:1px solid rgba(201,168,76,.3);border-radius:12px;padding:24px;margin-bottom:16px;text-align:center;}
+.espi-icone{font-size:36px;margin-bottom:10px;}
+.espi-titulo{font-family:'Playfair Display',serif;font-size:20px;color:var(--oro-claro);margin-bottom:8px;}
+.espi-texto{font-size:15px;color:#a8c8a8;line-height:1.7;}
+.versiculo{font-style:italic;color:var(--oro);font-size:14px;margin-top:10px;border-top:1px solid rgba(201,168,76,.2);padding-top:10px;}
+
+/* O QUE INCLUI */
+.item-inclui{display:flex;gap:14px;align-items:flex-start;background:#111e2e;border:1px solid rgba(82,183,136,.2);border-radius:10px;padding:16px;margin-bottom:10px;}
+.item-icone{font-size:26px;flex-shrink:0;margin-top:2px;}
+.item-body h4{font-size:16px;font-weight:700;color:var(--verde-claro);margin-bottom:4px;}
+.item-body p{font-size:14px;color:#99b0aa;line-height:1.6;}
+.item-tag{flex-shrink:0;text-align:right;}
+.item-de{font-size:16px;color:#555;text-decoration:line-through;}
+.item-inc{font-size:12px;color:var(--verde-claro);font-weight:700;}
+
+/* TOTAL */
+.total-val{background:#0a1e10;border:2px solid var(--verde);border-radius:10px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-bottom:20px;}
+.total-label{font-size:16px;color:var(--verde-claro);font-weight:700;}
+.total-antes{font-size:20px;color:#555;text-decoration:line-through;}
+.total-agora{font-family:'Playfair Display',serif;font-size:34px;color:var(--oro);font-weight:700;}
+
+/* PRECO BOX */
+.preco-box{background:var(--navy2);border:3px solid var(--oro);border-radius:14px;text-align:center;padding:28px 20px;max-width:460px;margin:0 auto 22px;}
+.preco-de{font-size:18px;color:#555;text-decoration:line-through;}
+.preco-titulo{font-size:13px;color:#888;letter-spacing:2px;text-transform:uppercase;margin:4px 0;}
+.preco-val{font-family:'Playfair Display',serif;font-size:68px;font-weight:900;color:var(--oro);line-height:1;}
+.preco-val sup{font-size:28px;vertical-align:super;}
+.preco-val sub{font-size:32px;}
+.preco-badge{display:inline-block;background:var(--verde);color:#fff;font-size:13px;font-weight:700;padding:6px 18px;border-radius:20px;margin-top:12px;}
+
+/* DEPOIMENTOS */
+.depo-card{background:#111e2e;border:1px solid rgba(201,168,76,.15);border-radius:10px;padding:20px;margin-bottom:14px;}
+.depo-texto{font-size:15px;color:#ccc;line-height:1.7;margin-bottom:14px;font-style:italic;}
+.depo-autor{display:flex;align-items:center;gap:10px;}
+.depo-av{width:44px;height:44px;border-radius:50%;background:var(--verde);color:#fff;font-family:'Playfair Display',serif;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;}
+.depo-nome{font-size:15px;font-weight:700;color:var(--oro-claro);}
+.depo-pais{font-size:12px;color:#666;}
+.depo-estrelas{margin-left:auto;color:#f0c040;font-size:15px;letter-spacing:1px;}
+
+/* GARANTIA */
+.garantia-box{background:var(--navy2);border:3px solid var(--verde-claro);border-radius:14px;padding:28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
+.garantia-selo{width:90px;height:90px;border-radius:50%;background:var(--verde);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;text-align:center;border:3px solid var(--verde-claro);}
+.garantia-dias{font-family:'Playfair Display',serif;font-size:30px;font-weight:900;color:#fff;line-height:1;}
+.garantia-label{font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#c8f0d8;}
+.garantia-body h3{font-family:'Playfair Display',serif;font-size:20px;color:var(--verde-claro);margin-bottom:8px;}
+.garantia-body p{font-size:14px;color:#b0c8b0;line-height:1.7;}
+
+/* URGENCIA FINAL */
+.urgencia-final{background:linear-gradient(135deg,#0a1a10,#0f2a15);border-top:2px solid var(--verde-claro);border-bottom:2px solid var(--verde-claro);text-align:center;padding:28px 16px;}
+.urgencia-final h2{font-family:'Playfair Display',serif;font-size:clamp(22px,4vw,34px);font-weight:700;color:#fff;margin-bottom:8px;}
+.urgencia-final p{font-size:16px;color:#c8dfc8;margin-bottom:18px;}
+.cupos{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid rgba(82,183,136,.4);border-radius:20px;padding:8px 20px;font-size:14px;margin-bottom:20px;color:#c8f0c8;}
+
+/* FAQ */
+.faq-item{border:1px solid rgba(201,168,76,.15);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+.faq-q{width:100%;background:#111e2e;border:none;padding:15px 18px;text-align:left;font-family:'Lato',sans-serif;font-size:15px;font-weight:700;color:var(--oro-claro);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+.faq-q:hover{background:#162535;}
+.faq-arrow{color:var(--oro);font-size:18px;transition:transform .3s;flex-shrink:0;}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+.faq-item.open .faq-a{max-height:300px;}
+.faq-a p{padding:14px 18px;font-size:14px;color:#aab8aa;line-height:1.7;border-top:1px solid rgba(201,168,76,.1);background:#0d1b2a;}
+
+/* POPUP */
+#popup{position:fixed;left:14px;bottom:-200px;z-index:9999;background:#111e2e;border:2px solid var(--oro);border-radius:10px;padding:12px 14px;width:270px;box-shadow:0 4px 20px rgba(201,168,76,.2);transition:bottom .4s ease;}
+#popup.show{bottom:14px;}
+.popup-inner{display:flex;align-items:center;gap:10px;}
+.popup-av{width:42px;height:42px;border-radius:50%;background:var(--verde);color:#fff;font-family:'Playfair Display',serif;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:700;}
+.popup-nome{font-size:13px;font-weight:700;color:var(--oro-claro);}
+.popup-info{font-size:12px;color:#88a;}
+.popup-tempo{font-size:11px;color:var(--verde-claro);font-weight:700;margin-top:2px;}
+
+footer{background:#080d14;color:#555;text-align:center;padding:24px 16px;font-size:12px;line-height:1.8;border-top:1px solid rgba(201,168,76,.1);}
+footer a{color:var(--oro);text-decoration:none;}
+
+@media(max-width:580px){
+  #topbar{font-size:13px;padding:9px;}
+  .page-header{font-size:14px;padding:9px;}
+  .hero{padding:24px 12px;}
+  .hero h1{font-size:26px;}
+  .hero-sub{font-size:15px;}
+  .btn-comprar{font-size:15px;padding:13px 14px;max-width:100%;}
+  .secao{padding:24px 12px;}
+  .secao-titulo{font-size:22px;}
+  .item-tag{display:none;}
+  .total-val{flex-direction:column;gap:4px;}
+  .preco-val{font-size:56px;}
+  .garantia-box{flex-direction:column;padding:20px 14px;}
+  .urgencia-final{padding:20px 12px;}
+  #popup{width:calc(100% - 28px);}
+  .cupom-code{font-size:26px;}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div id="topbar">
+  ⚡ <span id="num-visitantes">61</span> personas están viendo esta página ahora mismo...
+</div>
+
+<!-- HEADER -->
+<div class="page-header">PLAN FAMILIAR LIBRE DE DEUDAS — RABINO LEONARDO</div>
+
+<!-- URGENCIA TOP -->
+<div class="urgencia-top">
+  ⏰ Oferta especial válida hasta hoy, <span id="fecha-hoy"></span>. <span>¡Solo $17,99!</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+<div class="wrap">
+
+  <h1>La Biblia ya tenía el plan.<br><em>Tu familia solo necesita seguirlo.</em></h1>
+  <p class="hero-sub">Sal de las deudas con orden, fe y un sistema práctico creado para familias reales — sin cursos caros, sin promesas vacías.</p>
+
+  <div class="hero-versicle">
+    "El rico domina a los pobres, y el que pide prestado es esclavo del que presta."
+    <strong>— Proverbios 22:7</strong>
+  </div>
+
+  <div class="hero-img">
+    <img src="https://i.imgur.com/placeholder.png" onerror="this.style.display='none'" alt="Plan Familiar Libre de Deudas" />
+    <!-- Imagen principal del producto — reemplaza la URL con tu imagen real -->
+  </div>
+
+  <div class="btn-wrap">
+    <a href="https://pay.hotmart.com/P105981801F" class="btn-comprar">
+      ✅ QUIERO MI PLAN FAMILIAR AHORA
+      <small>Acceso inmediato · Solo $17,99 · Garantía de 7 días</small>
+    </a>
+    <p class="pagamentos">🔒 Pago 100% seguro · <strong>Hotmart</strong> · Visa · Mastercard · PayPal</p>
+    <p class="garantia-mini">↩ GARANTÍA TOTAL DE SATISFACCIÓN POR 7 DÍAS</p>
+  </div>
+
+  <!-- CUPOM -->
+  <div class="cupom-box">
+    <p class="cupom-titulo">🎁 Cupón especial de lanzamiento</p>
+    <div class="cupom-code">LIB20%</div>
+    <p class="cupom-desc">20% de descuento · Solo para las primeras 10 familias</p>
+    <div class="cupom-vagas">
+      <p class="barra-label">Cupones disponibles:</p>
+      <div class="barra-wrap"><div class="barra-fill"></div></div>
+      <p class="barra-aviso"><span class="dot-pulse"></span>¡Solo quedan <strong id="vagas-restantes">2</strong> cupones disponibles!</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- PROBLEMAS -->
+<div class="secao" style="background:#0d1520;">
+<div class="wrap">
+  <p class="secao-titulo">¿Te identificas con <span>alguno de estos</span> problemas?</p>
+  <div class="prob-item"><p>Cada mes termina igual: las deudas siguen ahí y el dinero <strong>no alcanza para nada más</strong>. Tu familia siente la tensión pero nadie sabe por dónde empezar.</p></div>
+  <div class="prob-item"><p>Pagas la mínima de una tarjeta y aparece otra deuda. <strong>El ciclo no para</strong> y ya no sabes cuánto debes en total.</p></div>
+  <div class="prob-item"><p>Has intentado organizar las finanzas, pero <strong>las hojas de cálculo son confusas</strong> y los cursos son caros o no funcionan para tu realidad.</p></div>
+  <div class="prob-item"><p>Sientes que la deuda no es solo financiera — es una carga que <strong>pesa en el hogar, en tu paz</strong> y en tu relación con Dios y tu familia.</p></div>
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- ESPIRITUALIDADE + SOLUCIÓN -->
+<div class="secao" style="background:#0f1e10;">
+<div class="wrap">
+  <p class="secao-titulo">La deuda tiene solución —<br><span>y la Biblia lo dice claramente</span></p>
+  <p class="secao-sub">No es falta de voluntad. Es falta de un sistema que funcione para tu familia. El Plan Familiar Libre de Deudas une sabiduría bíblica con herramientas prácticas.</p>
+
+  <div class="espi-box">
+    <div class="espi-icone">📖</div>
+    <div class="espi-titulo">Fe + Orden = Libertad</div>
+    <div class="espi-texto">Proverbios 21:5 enseña: "Los planes bien pensados producen ganancia, pero los que actúan con prisa llegan a la pobreza." Este plan te da exactamente eso: un camino claro, paso a paso, para que tu familia avance con calma y sin desesperación.</div>
+    <div class="versiculo">"La paz de una familia comienza con decisiones sabias." — Proverbios 22:7</div>
+  </div>
+
+  <div class="espi-box">
+    <div class="espi-icone">🏠</div>
+    <div class="espi-titulo">Diseñado para familias reales</div>
+    <div class="espi-texto">No importa si debes $5,000 o $200,000. No importa si tienes poca experiencia con finanzas. Esta herramienta fue creada para personas mayores de 40 años que quieren orden, claridad y resultados — sin complicaciones.</div>
+  </div>
+
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- O QUE INCLUI -->
+<div class="secao" style="background:#0d1b2a;">
+<div class="wrap">
+  <p class="secao-titulo">Todo lo que recibes con el<br><span>Plan Familiar Libre de Deudas</span></p>
+
+  <div class="item-inclui">
+    <div class="item-icone">📊</div>
+    <div class="item-body">
+      <h4>Plantilla Principal — Plan Familiar Libre de Deudas</h4>
+      <p>Hoja de cálculo completa con panel de control (Dashboard), registro de deudas, estrategias Bola de Nieve y Avalancha, plan mensual, calendario de pagos y calculadora de intereses. Todo automático — solo llenas tus números.</p>
+    </div>
+    <div class="item-tag"><p class="item-de">$47</p><p class="item-inc">incluido</p></div>
+  </div>
+
+  <div class="item-inclui">
+    <div class="item-icone">📋</div>
+    <div class="item-body">
+      <h4>Guía "Empieza Aquí" + Tutorial Paso a Paso</h4>
+      <p>PDFs sencillos que te explican exactamente cómo usar la plantilla sin confusión. Funciona en celular y computadora. Ideal para quienes no son expertos en Excel.</p>
+    </div>
+    <div class="item-tag"><p class="item-de">$17</p><p class="item-inc">incluido</p></div>
+  </div>
+
+  <div class="item-inclui">
+    <div class="item-icone">📓</div>
+    <div class="item-body">
+      <h4>BONO: Planner Semanal de Dinero</h4>
+      <p>Controla tus gastos semana a semana. Anota lo que entra, lo que sale, y mantén el rumbo de tu plan anti-deudas con un registro diario simple y claro.</p>
+    </div>
+    <div class="item-tag"><p class="item-de">$12</p><p class="item-inc">BONO</p></div>
+  </div>
+
+  <div class="item-inclui">
+    <div class="item-icone">🎁</div>
+    <div class="item-body">
+      <h4>REGALO: Planner Mensual Familiar</h4>
+      <p>Planifica cada mes antes de gastar. Ingresos, cuentas fijas, deudas, compras y cierre del mes — todo en un solo lugar para que tu familia avance unida.</p>
+    </div>
+    <div class="item-tag"><p class="item-de">$9</p><p class="item-inc">REGALO</p></div>
+  </div>
+
+  <div class="total-val">
+    <p class="total-label">💎 Valor total del paquete</p>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <span class="total-antes">$85</span>
+      <span style="color:#444;font-size:18px;">→</span>
+      <span class="total-agora">$17,99</span>
+    </div>
+  </div>
+
+  <div class="preco-box">
+    <p class="preco-de">Valor total: $85</p>
+    <p class="preco-titulo">HOY SOLO</p>
+    <div class="preco-val"><sup>$</sup>17<sub>,99</sub></div>
+    <p style="font-size:14px;color:#888;margin-top:6px;">Pago único · Acceso inmediato</p>
+    <p class="preco-badge">🟢 Oferta por tiempo limitado</p>
+  </div>
+
+  <a href="https://pay.hotmart.com/P105981801F" class="btn-comprar">
+    ✅ ACCEDER AL PLAN COMPLETO — $17,99
+    <small>Acceso inmediato · Garantía de 7 días · Pago 100% seguro</small>
+  </a>
+  <p class="pagamentos" style="margin-top:8px;">🔒 Hotmart · Visa · Mastercard · PayPal</p>
+  <p class="garantia-mini">↩ GARANTÍA TOTAL DE SATISFACCIÓN POR 7 DÍAS</p>
+
+  <!-- REPETE CUPOM -->
+  <div class="cupom-box" style="margin-top:20px;">
+    <p class="cupom-titulo">🎁 Recuerda usar tu cupón</p>
+    <div class="cupom-code">LIB20%</div>
+    <p class="cupom-desc">Aplica en el checkout · 20% de descuento</p>
+    <p class="barra-aviso" style="margin-top:8px;"><span class="dot-pulse"></span>Solo <strong id="vagas-restantes2">2</strong> cupones disponibles</p>
+  </div>
+
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- DEPOIMENTOS -->
+<div class="secao" style="background:#0d1520;">
+<div class="wrap">
+  <p class="secao-titulo">Lo que dicen las familias que <span>ya ordenaron sus finanzas</span></p>
+
+  <div class="depo-card">
+    <p class="depo-texto">"Llevaba años sin saber cuánto debía en total. Con la plantilla del Rabino Leonardo, en un día ya tenía todo registrado. Por primera vez en mucho tiempo dormí tranquila."</p>
+    <div class="depo-autor"><div class="depo-av">M</div><div><p class="depo-nome">María G.</p><p class="depo-pais">Ciudad de México</p></div><div class="depo-estrelas">★★★★★</div></div>
+  </div>
+
+  <div class="depo-card">
+    <p class="depo-texto">"Tengo 54 años y nunca fui buena con Excel. Pero esta plantilla es tan fácil que mi esposo y yo la llenamos juntos en una noche. El Dashboard nos mostró exactamente por dónde empezar."</p>
+    <div class="depo-autor"><div class="depo-av">C</div><div><p class="depo-nome">Carmen R.</p><p class="depo-pais">Guadalajara</p></div><div class="depo-estrelas">★★★★★</div></div>
+  </div>
+
+  <div class="depo-card">
+    <p class="depo-texto">"Lo que más me impactó fue el planner semanal. Nunca me había dado cuenta de cuánto dinero perdía en gastos pequeños. En dos meses hice un pago extra a mi deuda más grande."</p>
+    <div class="depo-autor"><div class="depo-av">R</div><div><p class="depo-nome">Rosa E.</p><p class="depo-pais">Monterrey</p></div><div class="depo-estrelas">★★★★★</div></div>
+  </div>
+
+  <div class="depo-card">
+    <p class="depo-texto">"Me gustó que el plan tiene un enfoque espiritual. No es solo un Excel — es un camino con propósito. Mi familia habla más sobre dinero ahora, y sin peleas."</p>
+    <div class="depo-autor"><div class="depo-av">A</div><div><p class="depo-nome">Alejandra M.</p><p class="depo-pais">Puebla</p></div><div class="depo-estrelas">★★★★★</div></div>
+  </div>
+
+  <div class="depo-card">
+    <p class="depo-texto">"Había gastado más de $200 en cursos de finanzas y nada funcionó para mí. Este plan de $17,99 me dio más claridad que todo lo anterior. Simple, práctico y con fe."</p>
+    <div class="depo-autor"><div class="depo-av">J</div><div><p class="depo-nome">Jorge H.</p><p class="depo-pais">Tijuana</p></div><div class="depo-estrelas">★★★★★</div></div>
+  </div>
+
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- GARANTIA -->
+<div class="secao" style="background:#0d1b2a;">
+<div class="wrap">
+  <div class="garantia-box">
+    <div class="garantia-selo">
+      <div class="garantia-dias">7</div>
+      <div class="garantia-label">días de garantía</div>
+    </div>
+    <div class="garantia-body">
+      <h3>Garantía Total de Satisfacción</h3>
+      <p>Si en los próximos <strong>7 días</strong> sientes que el Plan Familiar Libre de Deudas no fue lo que esperabas, te devolvemos el dinero <strong>sin preguntas y sin demoras</strong>. El riesgo es completamente nuestro. Tú solo te arriesgas a recuperar la paz financiera de tu familia.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- URGENCIA FINAL -->
+<div class="urgencia-final">
+<div class="wrap">
+  <h2>⚠️ CUPONES CASI AGOTADOS</h2>
+  <p>El cupón <strong>LIB20%</strong> es válido solo para las primeras 10 familias. Ya casi no quedan.</p>
+  <div class="cupom-box" style="max-width:440px;margin:0 auto 20px;">
+    <p class="cupom-titulo">Aplica el cupón en el checkout</p>
+    <div class="cupom-code">LIB20%</div>
+    <div class="barra-wrap" style="margin:10px 0 6px;"><div class="barra-fill"></div></div>
+    <p class="barra-aviso"><span class="dot-pulse"></span>Solo <strong>2</strong> cupones restantes</p>
+  </div>
+  <a href="https://pay.hotmart.com/P105981801F" class="btn-comprar" style="max-width:460px;margin:0 auto 12px;">
+    ✅ ACCEDER AHORA — SOLO $17,99
+    <small>Acceso inmediato · Garantía de 7 días · Pago seguro</small>
+  </a>
+  <p style="font-size:13px;opacity:.6;margin-top:8px;">🔒 Hotmart · Visa · Mastercard · PayPal</p>
+</div>
+</div>
+
+<div class="divisor">✦ ✦ ✦</div>
+
+<!-- FAQ -->
+<div class="secao" style="background:#0d1520;">
+<div class="wrap">
+  <p class="secao-titulo">Preguntas <span>Frecuentes</span></p>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿Necesito saber Excel para usar la plantilla? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>No. La plantilla está diseñada para que solo llenes tus números en las celdas en blanco. Los cálculos son automáticos. Si puedes abrir un archivo en tu celular o computadora, puedes usar este plan.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿Funciona en celular? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>Sí. La plantilla funciona en Google Sheets (gratis, en tu celular) o en Excel. Todos los PDFs de apoyo también se leen fácilmente en celular.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿Cuándo recibo los materiales? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>El acceso es inmediato. Al confirmar la compra recibes todo por email y en tu área de Hotmart. Puedes empezar hoy mismo.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿El cupón LIB20% aplica en el checkout? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>Sí. Al llegar al checkout de Hotmart, aplica el código LIB20% para obtener tu 20% de descuento. Recuerda que solo hay 10 cupones disponibles en total.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿Qué pasa si no funciona para mí? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>Tienes 7 días de garantía completa. Si por cualquier motivo no fue lo que esperabas, te devolvemos el dinero sin preguntas, sin burocracia, sin demoras.</p></div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-q" onclick="faq(this)">¿Para quién es este plan? <span class="faq-arrow">▾</span></button>
+    <div class="faq-a"><p>Para familias que quieren ordenar sus deudas de manera práctica y con un enfoque de fe. Especialmente pensado para personas de 40 años en adelante que quieren claridad, orden y paz financiera — sin complicaciones técnicas.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- CTA FINAL -->
+<div class="secao" style="background:#0d1b2a;text-align:center;">
+<div class="wrap">
+  <p class="secao-titulo" style="margin-bottom:6px;">Da el primer paso hoy</p>
+  <p style="font-size:17px;color:#88a;margin-bottom:22px;">Únete a las familias que ya están recuperando su paz financiera</p>
+  <div class="preco-box" style="margin-bottom:20px;">
+    <p class="preco-de">Valor total: $85</p>
+    <p class="preco-titulo">PRECIO HOY</p>
+    <div class="preco-val"><sup>$</sup>17<sub>,99</sub></div>
+    <p style="font-size:13px;color:#888;margin-top:6px;">Pago único · Acceso inmediato</p>
+    <p class="preco-badge">🟢 Oferta válida solo hoy</p>
+  </div>
+  <a href="https://pay.hotmart.com/P105981801F" class="btn-comprar">
+    ✅ QUIERO MEU PLAN FAMILIAR AHORA
+    <small>Acceso inmediato · Garantía de 7 días · Pago 100% seguro</small>
+  </a>
+  <p class="pagamentos" style="margin-top:10px;">🔒 Hotmart · Visa · Mastercard · PayPal</p>
+  <p class="garantia-mini">↩ GARANTÍA TOTAL DE SATISFACCIÓN POR 7 DÍAS</p>
+  <div class="cupom-box" style="margin-top:18px;">
+    <p class="cupom-titulo">No olvides el cupón</p>
+    <div class="cupom-code">LIB20%</div>
+    <p class="cupom-desc">20% de descuento · Aplica en el checkout</p>
+  </div>
+</div>
+</div>
+
+<footer>
+  <p>© 2025 · Plan Familiar Libre de Deudas · Rabino Leonardo · Todos los derechos reservados</p>
+  <p style="margin-top:6px;"><a href="#">Política de Privacidad</a> · <a href="#">Términos de Uso</a> · <a href="mailto:rmartins2124@gmail.com">Contacto</a></p>
+  <p style="margin-top:10px;font-size:11px;opacity:.5;">Este producto es educativo y de organización personal. No sustituye asesoría financiera profesional. Los testimonios son ilustrativos.</p>
+</footer>
+
+<!-- POPUP -->
+<div id="popup">
+  <div class="popup-inner">
+    <div class="popup-av" id="p-av">M</div>
+    <div>
+      <p class="popup-nome" id="p-nome">María de México</p>
+      <p class="popup-info" id="p-info">acaba de acceder al plan</p>
+      <p class="popup-tempo" id="p-tempo">Hace 3 minutos</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Visitantes flutuantes
+(function(){
+  var min=38,max=110,n=Math.floor(Math.random()*(max-min+1))+min;
+  document.getElementById('num-visitantes').textContent=n;
+  setInterval(function(){
+    n=n+Math.floor(Math.random()*3)-1;
+    if(n<min)n=min;if(n>max)n=max;
+    document.getElementById('num-visitantes').textContent=n;
+  },9000);
+})();
+
+// Data de hoje
+(function(){
+  var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  var meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var d=new Date();
+  document.getElementById('fecha-hoy').textContent=dias[d.getDay()]+' '+d.getDate()+' de '+meses[d.getMonth()];
+})();
+
+// FAQ
+function faq(btn){
+  var item=btn.closest('.faq-item');
+  var aberto=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open');});
+  if(!aberto)item.classList.add('open');
+}
+
+// Popup de compradores
+(function(){
+  var compradores=[
+    {av:'M',nome:'María G.',tempo:'Hace 1 minuto'},
+    {av:'C',nome:'Carmen R.',tempo:'Hace 3 minutos'},
+    {av:'J',nome:'Jorge H.',tempo:'Hace 6 minutos'},
+    {av:'A',nome:'Alejandra M.',tempo:'Hace 8 minutos'},
+    {av:'R',nome:'Rosa E.',tempo:'Hace 11 minutos'},
+    {av:'G',nome:'Gloria P.',tempo:'Hace 14 minutos'},
+    {av:'L',nome:'Lupita V.',tempo:'Hace 17 minutos'},
+    {av:'F',nome:'Fernando C.',tempo:'Hace 20 minutos'},
+    {av:'P',nome:'Patricia N.',tempo:'Hace 23 minutos'},
+    {av:'S',nome:'Sandra T.',tempo:'Hace 27 minutos'},
+    {av:'E',nome:'Esperanza L.',tempo:'Hace 30 minutos'},
+    {av:'H',nome:'Héctor M.',tempo:'Hace 33 minutos'},
+  ];
+  var popup=document.getElementById('popup');
+  var idx=0;
+  function mostrar(){
+    var c=compradores[idx%compradores.length];
+    document.getElementById('p-av').textContent=c.av;
+    document.getElementById('p-nome').textContent=c.nome;
+    document.getElementById('p-tempo').textContent=c.tempo;
+    popup.classList.add('show');
+    setTimeout(function(){popup.classList.remove('show');},5000);
+    idx++;
+  }
+  setTimeout(function(){
+    mostrar();
+    setInterval(mostrar,13000);
+  },Math.floor(Math.random()*4000)+3000);
+})();
+
+// Cupom vagas — simulação decrescente
+(function(){
+  var vagas=2;
+  // Já mostra 2, mas se quiser dinamismo pode mudar para 3 e decrementar
+  // Para mais realismo, pode-se salvar no localStorage
+  document.querySelectorAll('#vagas-restantes, #vagas-restantes2').forEach(function(el){
+    el.textContent=vagas;
+  });
+})();
+</script>
+</body>
+</html>
